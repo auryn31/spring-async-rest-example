@@ -21,7 +21,7 @@ class DataProvider {
 
     fun emitRandomCarsWithTimeout(publishSubject: PublishSubject<Car>) {
         for (i in 0..10) {
-            Thread.sleep(20)
+            Thread.sleep(200)
             publishSubject.onNext(Car(name = "Car", company = "Company", model = "S"))
         }
         publishSubject.onComplete()
