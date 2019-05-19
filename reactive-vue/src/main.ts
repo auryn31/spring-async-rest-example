@@ -13,9 +13,6 @@ import { store } from "./store";
 
 import router from "./router";
 
-import Navbar from "./components/navbar";
-import Foot from "./components/foot";
-
 import "./style.scss";
 import template from "./main.vue";
 
@@ -31,8 +28,6 @@ Vue.config.errorHandler = function (err, vm, info) {
   mixins: [template],
   store,
   components: {
-    Navbar,
-    Foot
   },
   router
 })
