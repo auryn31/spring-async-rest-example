@@ -2,6 +2,7 @@ import Vue from "vue";
 import * as Vuex from "vuex";
 import { getStoreAccessors } from "vuex-typescript";
 import { State } from "./state";
+import Car from "../models/car";
 
 Vue.use(Vuex);
 
@@ -13,7 +14,9 @@ const state: State = {
 
   auth: {
     isLoggedIn: false
-  }
+  },
+  cars_async: new Array(),
+  cars_sync: new Array()
 };
 
 const getters = {
@@ -26,6 +29,12 @@ const getters = {
   getLoggedInState(state: State) {
     return state.auth.isLoggedIn;
   },
+  getAsyncCars(state: State) {
+    return state.cars_async;
+  },
+  getSyncCars(state: State) {
+    return state.cars_sync;
+  }
 };
 
 const mutations = {
@@ -38,6 +47,12 @@ const mutations = {
   setLoggedInState(state: State, loggedInState: boolean) {
     state.auth.isLoggedIn = loggedInState;
   },
+  addCar(state: State, car: Car) {
+    state.cars_async.push(car);
+  },
+  setCars(state: State, cars: Array<Car>) {
+    state.cars_sync = cars;
+  }
 };
 
 const actions = {
@@ -61,6 +76,8 @@ const { read, commit, dispatch } = getStoreAccessors<State, State>("");
 export const readSplashScreenVisibility = read(getters.getSplashScreenState);
 export const readLoaderVisibility = read(getters.getLoaderState);
 export const readLoggedInState = read(getters.getLoggedInState);
+export const readAsyncCars = read(getters.getAsyncCars);
+export const readSyncCars = read(getters.getSyncCars);
 
 /*************************************************/
 /* MUTATIONS */
@@ -68,8 +85,10 @@ export const readLoggedInState = read(getters.getLoggedInState);
 export const commitSplashScreenVisibility = commit(mutations.setSplashScreenVisibility);
 export const commitLoaderVisibility = commit(mutations.setLoaderVisibility);
 export const commitLoggedInState = commit(mutations.setLoggedInState);
+export const commitAsyncCar = commit(mutations.addCar);
+export const commitSyncCars = commit(mutations.setCars);
 
 /*************************************************/
 /* ACTIONS */
 /*************************************************/
-export const dispatchLoginUser = dispatch(actions.loginUser);
+// export const dispatchLoginUser = dispatch(actions.loginUser);

@@ -15,13 +15,14 @@ ul {
   padding: 0;
 }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
 a {
   color: #42b983;
   text-decoration: none;
   background-color: transparent;
+}
+
+.carlistcontainer { 
+  display: grid; 
+  
+  grid-template-columns:50% 50%; 
 }
