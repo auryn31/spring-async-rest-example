@@ -1,3 +1,3 @@
 package com.example.reactive.model
 
-data class Car(val name: String, val model: String, val company: String)
+data class Car(val id: Int, val model: String, val company: String)

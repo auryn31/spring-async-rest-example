@@ -15,8 +15,8 @@ const state: State = {
   auth: {
     isLoggedIn: false
   },
-  cars_async: new Array(),
-  cars_sync: new Array()
+  cars_async: [],
+  cars_sync: []
 };
 
 const getters = {
@@ -51,7 +51,8 @@ const mutations = {
     state.cars_async.push(car);
   },
   setCars(state: State, cars: Array<Car>) {
-    state.cars_sync = cars;
+    state.cars_sync.splice(0);
+    cars.forEach(a => state.cars_sync.push(a));
   }
 };
 

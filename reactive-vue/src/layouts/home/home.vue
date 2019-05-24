@@ -1,8 +1,9 @@
 <template>
-<div class="view-home">
+<v-app class="view-home">
     <div class="container text-center">
       <cars class="text-center"></cars>
     </div>
-</div>
+</v-app>
 </template>
-<style lang="scss" src="./home.scss" scoped></style>
+<style lang="scss" src="./home.scss" scoped>
+</style>

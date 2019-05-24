@@ -3,8 +3,9 @@ import "./localisation";
 
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
-import VueRouter from "vue-router";
 import * as Logger from "js-logger";
+import Vuetify from "vuetify";
+import "vuetify/dist/vuetify.css";
 
 import Config from "./config.json";
 
@@ -23,6 +24,8 @@ Logger.setLevel(logLevel);
 Vue.config.errorHandler = function (err, vm, info) {
   Logger.error("Vue error: ", err);
 };
+
+Vue.use(Vuetify);
 
 @Component({
   mixins: [template],

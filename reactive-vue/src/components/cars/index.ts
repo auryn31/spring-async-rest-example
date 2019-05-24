@@ -1,8 +1,17 @@
 import Vue from "vue";
-import { Component, Prop } from "vue-property-decorator";
+import {
+  Component
+} from "vue-property-decorator";
 import template from "./cars.vue";
 import Car from "../../models/car";
-import { store } from "../../store"
+import {
+  store
+} from "../../store";
+import {
+  readAsyncCars,
+  readSyncCars
+} from "../../store/store";
+import Carloader from "../../services/carloader";
 
 @Component({
   mixins: [template],
@@ -11,9 +20,10 @@ import { store } from "../../store"
 export default class Cars extends Vue {
   msg: string = "List of Cars";
   loading_text: string = "Load Cars";
-  cars: Array<Car> = [new Car("1", "2", "3"), new Car("2", "2", "3"), new Car("3", "2", "3")];
-  loadcars (): void {
-    console.log("loading cars from 8080");
-    console.log(store);
+  carsAsync: Array < Car > = readAsyncCars(store);
+  carsSync: Array < Car > = readSyncCars(store);
+  loadcars(): void {
+    Carloader.loadCarsSync();
+    Carloader.loadCarsAsync();
   }
 }

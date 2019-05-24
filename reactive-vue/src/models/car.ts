@@ -1,9 +1,9 @@
 export default class Car {
-    name: String;
+    id: Number;
     model: String;
     company: String;
-    constructor(name: String, model: String, company: String) {
-        this.name = name;
+    constructor(id: Number, model: String, company: String) {
+        this.id = id;
         this.model = model;
         this.company = company;
     }
