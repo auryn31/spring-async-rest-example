@@ -16,14 +16,28 @@ import java.net.URL
 class RestEndpointTest {
 
     @Test
-    fun `there are 11 cars as response from api`() {
+    fun `there are 11 cars as response from api as stream`() {
         val url = URL("http://127.0.0.1:8080/cars")
         val con = url.openConnection()
+        con.setRequestProperty("Accept", "application/stream+json")
         val stream = con.getInputStream()
         val reader = BufferedReader(InputStreamReader(stream))
         val observable = fromBufferedReader(reader)
         val responseCars = observable.map { Klaxon().parse<Car>(it) }.blockingIterable().toList()
         assert(responseCars.size == 11)
+    }
+
+    @Test
+    fun `there are 11 cars as response from api as list`() {
+        val url = URL("http://127.0.0.1:8080/cars")
+        val con = url.openConnection()
+        con.setRequestProperty("Accept", "application/json")
+        val stream = con.getInputStream()
+        val reader = BufferedReader(InputStreamReader(stream))
+        var response = ""
+        reader.lines().forEach{ response += it}
+        val responseCars = Klaxon().parseArray<Car>(response);
+        assert(responseCars?.size == 11)
     }
 }
 

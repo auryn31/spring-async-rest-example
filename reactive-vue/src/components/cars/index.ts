@@ -12,6 +12,7 @@ import {
   readSyncCars
 } from "../../store/store";
 import Carloader from "../../services/carloader";
+import CarElement from "../car/Car.vue";
 
 @Component({
   mixins: [template],

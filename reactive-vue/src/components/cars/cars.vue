@@ -25,6 +25,7 @@
               <v-spacer></v-spacer>
             </v-list-tile>
           </template>
+          <CarElement/>
       </v-list>
     </div>
   </div>
