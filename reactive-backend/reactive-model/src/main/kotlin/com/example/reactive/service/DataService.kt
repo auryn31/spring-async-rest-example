@@ -19,7 +19,7 @@ class DataService {
         }
 
         fun getDataStream() : Observable<Car> {
-            val cars = listOf(0,0,0,0,0,0,0,0,0,0,0,0).map { createRandomCar() }
+            val cars = listOf(0,0,0,0,0,0,0,0,0,0,0).map { createRandomCar() }
             return Observable.fromIterable(cars)
         }
 
