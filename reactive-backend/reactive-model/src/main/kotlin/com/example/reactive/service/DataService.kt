@@ -9,7 +9,7 @@ import kotlin.random.Random
 
 class DataService {
     companion object {
-        fun getDataStream() : Observable<Car> {
+        fun getDataStreamWithTimeOut() : Observable<Car> {
             val publishSubject = PublishSubject.create<Car>()
             GlobalScope.async {
                 Thread.sleep(100)
@@ -17,6 +17,12 @@ class DataService {
             }
             return publishSubject
         }
+
+        fun getDataStream() : Observable<Car> {
+            val cars = listOf(0,0,0,0,0,0,0,0,0,0,0,0).map { createRandomCar() }
+            return Observable.fromIterable(cars)
+        }
+
         private fun emitRandomCarsWithTimeout(publishSubject: PublishSubject<Car>) {
             for (i in 0..10) {
                 Thread.sleep(150)
