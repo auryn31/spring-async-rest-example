@@ -16,7 +16,14 @@ class CarResource {
 
     @GET
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
-    fun loadHierarchy(): Response {
+    fun loadCarsAsOctetStream(): Response {
+        val responseStream = CarStreamResponseOutput()
+        return Response.ok().entity(responseStream).build()
+    }
+
+    @GET
+    @Produces("application/stream+json")
+    fun loadCarsAsJsonStream(): Response {
         val responseStream = CarStreamResponseOutput()
         return Response.ok().entity(responseStream).build()
     }
