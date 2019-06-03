@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component
 @Component
 class DataProvider {
     fun getDataStream() : Observable<Car> {
-        return DataService.getDataStream()
+        return DataService.getDataStream(0)
     }
 }

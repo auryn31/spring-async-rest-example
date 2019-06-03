@@ -11,7 +11,7 @@ class CarResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    fun getCarsAsList() = DataService.getDataStream().toList().blockingGet()
+    fun getCarsAsList() = DataService.getDataStream(0).toList().blockingGet()
 
 
     @GET
