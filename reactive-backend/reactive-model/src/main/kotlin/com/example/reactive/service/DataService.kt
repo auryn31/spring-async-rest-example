@@ -2,9 +2,6 @@ package com.example.reactive.service
 
 import com.example.reactive.model.Car
 import io.reactivex.Observable
-import io.reactivex.subjects.PublishSubject
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
 import kotlin.random.Random
 
 class DataService {
