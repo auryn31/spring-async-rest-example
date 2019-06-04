@@ -19,6 +19,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
         <helidon.version>1.1.1</helidon.version>
+        <helidon.json.version>0.11.0</helidon.json.version>
+        <klaxon-version>4.0.2</klaxon-version>
     </properties>
 
     <dependencies>
@@ -32,6 +34,37 @@
             <groupId>io.helidon.webserver</groupId>
             <artifactId>helidon-webserver</artifactId>
             <version>${helidon.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.helidon.webserver</groupId>
+            <artifactId>helidon-webserver-json</artifactId>
+            <version>${helidon.json.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.example.reactive</groupId>
+            <artifactId>model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.helidon.webserver</groupId>
+            <artifactId>helidon-webserver-jersey</artifactId>
+            <version>${helidon.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.beust/klaxon -->
+        <dependency>
+            <groupId>com.beust</groupId>
+            <artifactId>klaxon</artifactId>
+            <version>${klaxon-version}</version>
         </dependency>
 
         <dependency>
@@ -90,7 +123,7 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>com.example.reactive.HelloKt</mainClass>
+                                    <mainClass>com.example.reactive.MainKt</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>
