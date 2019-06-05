@@ -7,8 +7,6 @@ import java.util.concurrent.TimeUnit
 import io.helidon.webserver.ServerConfiguration
 
 
-
-
 fun main(args: Array<String>) {
 
     val serverConfig = ServerConfiguration.builder()

@@ -16,7 +16,6 @@ class CarStreamResponseOutput : StreamingOutput {
             writer.write(Klaxon().toJsonString(it))
             writer.write("\n")
             writer.flush()
-            println(it)
         }, ::println, {
             os?.close()
             countDownLatch.countDown()
