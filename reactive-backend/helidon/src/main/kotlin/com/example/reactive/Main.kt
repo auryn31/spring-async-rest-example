@@ -22,6 +22,6 @@ fun main(args: Array<String>) {
             .toCompletableFuture()
             .get(10, TimeUnit.SECONDS)
 
-    println("Server started at: http://localhost:" + webServer.port())
+    println("Cars Server started at: http://localhost:" + webServer.port() + "/cars")
 }
 

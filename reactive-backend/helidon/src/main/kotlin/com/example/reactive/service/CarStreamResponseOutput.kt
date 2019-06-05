@@ -12,7 +12,7 @@ class CarStreamResponseOutput : StreamingOutput {
     override fun write(os: OutputStream?) {
         val writer = BufferedWriter(OutputStreamWriter(os))
         val countDownLatch = CountDownLatch(1)
-        DataService.getDataStream(200).subscribe({
+        DataService.getDataStream(0).subscribe({
             writer.write(Klaxon().toJsonString(it))
             writer.write("\n")
             writer.flush()
