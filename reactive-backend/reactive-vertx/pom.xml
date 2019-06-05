@@ -6,7 +6,7 @@
 
   <groupId>com.example.reactive</groupId>
   <artifactId>vertx</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0-SNAPSHOT</version>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,6 +22,8 @@
     <junit-jupiter.version>5.4.0</junit-jupiter.version>
 
     <main.verticle>com.example.reactive.reactive_vertx.MainVerticle</main.verticle>
+
+    <klaxon-version>5.0.5</klaxon-version>
   </properties>
 
   <dependencyManagement>
@@ -70,6 +72,19 @@
       <artifactId>junit-jupiter-engine</artifactId>
       <version>${junit-jupiter.version}</version>
       <scope>test</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.beust/klaxon -->
+    <dependency>
+      <groupId>com.beust</groupId>
+      <artifactId>klaxon</artifactId>
+      <version>${klaxon-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>model</artifactId>
+      <version>${project.version}</version>
     </dependency>
   </dependencies>
 
@@ -148,6 +163,26 @@
       </plugin>
     </plugins>
   </build>
+
+  <repositories>
+    <repository>
+      <id>spring-snapshots</id>
+      <name>Spring Snapshots</name>
+      <url>https://repo.spring.io/snapshot</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>spring-milestones</id>
+      <name>Spring Milestones</name>
+      <url>https://repo.spring.io/milestone</url>
+    </repository>
+    <repository>
+      <id>jcenter</id>
+      <url>https://jcenter.bintray.com/</url>
+    </repository>
+  </repositories>
 
 
 </project>
