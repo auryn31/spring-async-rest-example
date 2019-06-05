@@ -20,7 +20,7 @@
         <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
         <helidon.version>1.1.1</helidon.version>
         <helidon.json.version>0.11.0</helidon.json.version>
-        <klaxon-version>4.0.2</klaxon-version>
+        <klaxon.version>5.0.5</klaxon.version>
     </properties>
 
     <dependencies>
@@ -64,7 +64,7 @@
         <dependency>
             <groupId>com.beust</groupId>
             <artifactId>klaxon</artifactId>
-            <version>${klaxon-version}</version>
+            <version>${klaxon.version}</version>
         </dependency>
 
         <dependency>
@@ -135,5 +135,13 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+
+        <repository>
+            <id>jcenter</id>
+            <url>https://jcenter.bintray.com/</url>
+        </repository>
+    </repositories>
 
 </project>

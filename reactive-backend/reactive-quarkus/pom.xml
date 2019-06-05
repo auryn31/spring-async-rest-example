@@ -9,7 +9,7 @@
     <artifactId>quarkus</artifactId>
 
     <properties>
-        <klaxon-version>4.0.2</klaxon-version>
+        <klaxon-version>5.0.5</klaxon-version>
         <rxjava-version>2.2.8</rxjava-version>
         <surefire-plugin.version>2.22.0</surefire-plugin.version>
         <quarkus.version>0.15.0</quarkus.version>

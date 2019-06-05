@@ -17,7 +17,7 @@
         <module>reactive-model</module>
         <module>reactive-quarkus</module>
         <module>reactive-spring</module>
-        <module>helidon</module>
+        <module>reactive-helidon</module>
     </modules>
 
     <properties>
