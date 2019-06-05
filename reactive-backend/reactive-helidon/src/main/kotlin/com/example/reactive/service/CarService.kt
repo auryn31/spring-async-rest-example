@@ -16,7 +16,7 @@ class CarService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     fun getCarsAsList():Response {
-        return Response.ok().header("Access-Control-Allow-Origin", "*").entity(Klaxon().toJsonString(DataService.getDataStream(150).toList().blockingGet())).build()
+        return Response.ok().header("Access-Control-Allow-Origin", "*").entity(Klaxon().toJsonString(DataService.getDataStream(0).toList().blockingGet())).build()
     }
 
 
