@@ -13,7 +13,7 @@ Full article:
 
 ## RESULT
 
-![carloader.gif](carloader.gif)
+![carloader.gif](https://media.giphy.com/media/chuNv0nEdUDYnaLn99/giphy.gif)
 
 ## locust
 
