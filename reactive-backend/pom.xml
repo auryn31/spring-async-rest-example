@@ -18,6 +18,7 @@
         <module>reactive-quarkus</module>
         <module>reactive-spring</module>
         <module>reactive-helidon</module>
+        <module>reactive-vertx</module>
     </modules>
 
     <properties>
