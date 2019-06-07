@@ -13,7 +13,7 @@ Full article:
 
 ## RESULT
 
-![carloader.gif](https://media.giphy.com/media/chuNv0nEdUDYnaLn99/giphy.gif)
+![carloader.gif](https://media.giphy.com/media/chuNv0nEdUDYnaLn99/giphy.gif?style=center)
 
 ## locust
 
@@ -34,3 +34,10 @@ locust --host=http://localhost:8080
 - wildfly
 - Dropwizard
 - Spark Framework
+
+<style>
+img[src$="center"] {
+  display:block;
+  margin: 0 auto;
+}
+</style>
