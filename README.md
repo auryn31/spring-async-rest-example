@@ -12,8 +12,7 @@ Full article:
 [itemis Deutsch](https://blogs.itemis.com/de/how-to-reactive-stream-mit-spring-boot-und-rxjava-in-kotlin)
 
 ## RESULT
-
-![carloader.gif](https://media.giphy.com/media/chuNv0nEdUDYnaLn99/giphy.gif?style=center)
+<span style="display:block;text-align:center">![carloader.gif](https://media.giphy.com/media/chuNv0nEdUDYnaLn99/giphy.gif)</span>
 
 ## locust
 
@@ -34,10 +33,3 @@ locust --host=http://localhost:8080
 - wildfly
 - Dropwizard
 - Spark Framework
-
-<style>
-img[src$="center"] {
-  display:block;
-  margin: 0 auto;
-}
-</style>
