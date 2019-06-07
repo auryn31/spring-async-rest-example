@@ -33,5 +33,4 @@ locust --host=http://localhost:8080
 - micronaut
 - wildfly
 - Dropwizard
-- RESTEasy
 - Spark Framework
