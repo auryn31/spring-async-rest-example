@@ -16,16 +16,6 @@ class DataService {
             }
         }
 
-        fun getDataFlowable(timeout: Long) : Flowable<Car> {
-            return Flowable.create({ it:FlowableEmitter<Car> ->
-                for (i in 0..10) {
-                    Thread.sleep(timeout)
-                    it.onNext(createRandomCar())
-                }
-                it.onComplete()
-            }, BackpressureStrategy.BUFFER)
-        }
-
         private fun createRandomCar(): Car {
             val carNames = listOf("e-tron", "TT Coupé", "Nova", "Uno", "Kuga", "Pinto", "Probe", "Vaneo", "iMIEV", "Opa", "Phaeton")
             val companyNames = listOf("Audi", "Toyota", "VW", "Ford", "Kia", "Fiat", "Chevrolet", "Mercedes")

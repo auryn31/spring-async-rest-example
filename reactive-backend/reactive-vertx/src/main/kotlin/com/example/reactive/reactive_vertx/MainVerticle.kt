@@ -20,7 +20,7 @@ class MainVerticle : AbstractVerticle() {
       .handler{ rtx ->
         val response = rtx.response()
         response.setChunked(true)
-        val flow: Flowable<Buffer> = DataService.getDataFlowable(100).map { Buffer.buffer(Klaxon().toJsonString(it)) }
+        val flow: Flowable<Buffer> = DataService.getDataStream(100).map { Buffer.buffer(Klaxon().toJsonString(it)) }.toFlowable(BackpressureStrategy.BUFFER)
         flow.subscribe({
           response.write(it)
           response.write("\n")
