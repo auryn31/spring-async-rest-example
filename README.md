@@ -20,3 +20,18 @@ Full article:
 ```bash
 locust --host=http://localhost:8080
 ```
+
+## Current implemented backends
+
+- vertx
+- quarkus
+- helidon
+- spring boot
+
+### TODO
+
+- micronaut
+- wildfly
+- Dropwizard
+- RESTEasy
+- Spark Framework
