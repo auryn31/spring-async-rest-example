@@ -1,12 +1,10 @@
 package com.example.reactive.reactive_vertx
 
-import com.beust.klaxon.Klaxon
-import com.example.reactive.service.DataService
-import io.reactivex.*
 import io.vertx.core.AbstractVerticle
 import io.vertx.core.Future
 import io.vertx.ext.web.Router
-import io.vertx.core.buffer.Buffer
+
+const val TIMEOUT = 100L
 
 class MainVerticle : AbstractVerticle() {
 
@@ -17,30 +15,19 @@ class MainVerticle : AbstractVerticle() {
     val router = Router.router(vertx)
 
     router.route("/cars")
-      .handler{ rtx ->
-        val response = rtx.response()
-        response.setChunked(true)
-        val flow: Flowable<Buffer> = DataService.getDataStream(100).map { Buffer.buffer(Klaxon().toJsonString(it)) }.toFlowable(BackpressureStrategy.BUFFER)
-        flow.subscribe({
-          response.write(it)
-          response.write("\n")
-          response.writeContinue()
-        }, ::println, {response.end()})
-      }.failureHandler {
-        println("car error :-/\n")
-        it.response().end("car error :-/\n")
+      .produces("application/stream+json")
+      .handler(AsyncCarResponse())
+      .failureHandler {
+        println("car error asynchron response\n")
+        it.response().end("car error asynchron response\n")
       }
 
-    router.route("/")
-      .handler{ rtx ->
-        val response = rtx.response()
-        response.setChunked(true)
-        response.write("t")
-        response.end("end message")
-      }
+    router.route("/cars")
+      .produces("application/json")
+      .handler(SyncCarResponse())
       .failureHandler {
-        println("error")
-        it.response().end("error")
+        println("car error synchron response\n")
+        it.response().end("car error synchron response\n")
       }
 
     server.requestHandler(router).listen(8080) { http ->
