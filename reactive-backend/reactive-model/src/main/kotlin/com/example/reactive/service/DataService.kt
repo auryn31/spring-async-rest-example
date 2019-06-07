@@ -1,7 +1,7 @@
 package com.example.reactive.service
 
 import com.example.reactive.model.Car
-import io.reactivex.Observable
+import io.reactivex.*
 import kotlin.random.Random
 
 class DataService {
@@ -14,6 +14,16 @@ class DataService {
                 }
                 it.onComplete()
             }
+        }
+
+        fun getDataFlowable(timeout: Long) : Flowable<Car> {
+            return Flowable.create({ it:FlowableEmitter<Car> ->
+                for (i in 0..10) {
+                    Thread.sleep(timeout)
+                    it.onNext(createRandomCar())
+                }
+                it.onComplete()
+            }, BackpressureStrategy.BUFFER)
         }
 
         private fun createRandomCar(): Car {
