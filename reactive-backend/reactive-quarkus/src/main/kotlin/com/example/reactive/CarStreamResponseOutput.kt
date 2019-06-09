@@ -6,9 +6,11 @@ import java.io.BufferedWriter
 import java.io.OutputStream
 import java.io.OutputStreamWriter
 import java.util.concurrent.CountDownLatch
+import javax.enterprise.context.ApplicationScoped
 import javax.ws.rs.core.StreamingOutput
 
-class CarStreamResponseOutput : StreamingOutput {
+@ApplicationScoped
+open class CarStreamResponseOutput : StreamingOutput {
 
     override fun write(os: OutputStream?) {
         val writer = BufferedWriter(OutputStreamWriter(os))
