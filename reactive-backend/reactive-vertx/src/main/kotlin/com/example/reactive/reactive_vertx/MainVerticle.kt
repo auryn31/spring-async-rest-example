@@ -4,11 +4,13 @@ import io.vertx.core.AbstractVerticle
 import io.vertx.core.Future
 import io.vertx.ext.web.Router
 
-const val TIMEOUT = 100L
+const val TIMEOUT = 0L
 
 class MainVerticle : AbstractVerticle() {
 
   override fun start(startFuture: Future<Void>) {
+
+    val startTime = System.currentTimeMillis()
 
     val server = vertx.createHttpServer()
 
@@ -33,7 +35,8 @@ class MainVerticle : AbstractVerticle() {
     server.requestHandler(router).listen(8080) { http ->
       if (http.succeeded()) {
         startFuture.complete()
-        println("HTTP server started on port 8080")
+        val startTimeDone = System.currentTimeMillis() - startTime
+        println("HTTP server started on port 8080 in $startTimeDone ms")
       } else {
         startFuture.fail(http.cause());
       }

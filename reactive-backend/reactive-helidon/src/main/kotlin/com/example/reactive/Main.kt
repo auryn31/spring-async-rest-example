@@ -9,6 +9,8 @@ import io.helidon.webserver.ServerConfiguration
 
 fun main(args: Array<String>) {
 
+    val startTime = System.currentTimeMillis()
+
     val serverConfig = ServerConfiguration.builder()
             .port(8080).build()
 
@@ -20,6 +22,7 @@ fun main(args: Array<String>) {
             .toCompletableFuture()
             .get(10, TimeUnit.SECONDS)
 
-    println("Cars Server started at: http://localhost:" + webServer.port() + "/cars")
+    val startTimeDone = System.currentTimeMillis() - startTime
+    println("Cars Server started at: http://localhost:" + webServer.port() + "/cars in $startTimeDone ms")
 }
 
