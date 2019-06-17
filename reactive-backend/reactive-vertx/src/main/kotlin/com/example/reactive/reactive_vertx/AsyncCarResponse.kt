@@ -10,15 +10,15 @@ import io.vertx.ext.web.RoutingContext
 
 class AsyncCarResponse : Handler<RoutingContext> {
 
-  override fun handle(rtx: RoutingContext?) {
-    val response = rtx?.response()
+  override fun handle(rtx: RoutingContext) {
+    val response = rtx.response()
     response?.setChunked(true)
     val flow: Flowable<String> = DataService.getDataStream(TIMEOUT).map { Klaxon().toJsonString(it) }.toFlowable(BackpressureStrategy.BUFFER)
     flow.subscribe({
-      response?.write(it)
-      response?.write("\n")
-      response?.writeContinue()
-    }, ::println, {response?.end()})
+      response.write(it)
+      response.write("\n")
+      response.writeContinue()
+    }, ::println, {response.end()})
   }
 
 }

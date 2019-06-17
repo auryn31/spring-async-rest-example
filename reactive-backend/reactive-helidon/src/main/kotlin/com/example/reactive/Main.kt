@@ -1,5 +1,6 @@
 package com.example.reactive
 
+import com.example.reactive.service.CarLocustService
 import com.example.reactive.service.CarService
 import io.helidon.webserver.*
 import io.helidon.webserver.jersey.JerseySupport
@@ -17,6 +18,7 @@ fun main(args: Array<String>) {
     val webServer = WebServer
             .create(serverConfig, Routing.builder()
                     .register("/cars", JerseySupport.builder().register(CarService::class.java).build())
+                    .register("/cars-locust", JerseySupport.builder().register(CarLocustService::class.java).build())
                     .build())
             .start()
             .toCompletableFuture()

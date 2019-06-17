@@ -24,6 +24,14 @@ class MainVerticle : AbstractVerticle() {
         it.response().end("car error asynchron response\n")
       }
 
+    router.route("/cars-locust")
+      .produces("application/stream+json")
+      .handler(AsyncCarResponse())
+      .failureHandler {
+        println("car error asynchron response\n")
+        it.response().end("car error asynchron response\n")
+      }
+
     router.route("/cars")
       .produces("application/json")
       .handler(SyncCarResponse())

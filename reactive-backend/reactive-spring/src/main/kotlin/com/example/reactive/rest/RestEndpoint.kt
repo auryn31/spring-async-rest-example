@@ -31,6 +31,12 @@ class RestEndpoint {
         return streamResponse
     }
 
+    @GetMapping(path = ["cars-locust"], produces = [MediaType.APPLICATION_STREAM_JSON_VALUE])
+    @CrossOrigin(origins = ["http://localhost:8081"])
+    fun getCarsAsStreamWithExtraEndpointForLocust(): StreamingResponseBody {
+        return streamResponse
+    }
+
     @GetMapping(path = ["cars"], produces = [MediaType.APPLICATION_JSON_VALUE])
     @ResponseBody
     @CrossOrigin(origins = ["http://localhost:8081"])

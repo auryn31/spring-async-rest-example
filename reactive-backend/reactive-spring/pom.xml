@@ -24,8 +24,8 @@
         <quarkus.version>0.15.0</quarkus.version>
         <surefire-plugin.version>2.22.1</surefire-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.11</maven.compiler.source>
+        <maven.compiler.target>1.11</maven.compiler.target>
         <spring-web.version>2.1.5.RELEASE</spring-web.version>
         <spring-test.version>2.1.5.RELEASE</spring-test.version>
         <faster-jackson.version>2.9.9</faster-jackson.version>

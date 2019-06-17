@@ -4,7 +4,7 @@ class UserBehavior(TaskSet):
 
     @task(1)
     def profile(self):
-        self.client.get("/cars")
+        self.client.get("/cars-locust")
 
 class WebsiteUser(HttpLocust):
     task_set = UserBehavior
