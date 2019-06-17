@@ -24,6 +24,8 @@ class MainVerticle : AbstractVerticle() {
         it.response().end("car error asynchron response\n")
       }
 
+/*
+    // Same route ????
     router.route("/cars")
       .produces("application/json")
       .handler(SyncCarResponse())
@@ -31,12 +33,13 @@ class MainVerticle : AbstractVerticle() {
         println("car error synchron response\n")
         it.response().end("car error synchron response\n")
       }
+*/
 
     server.requestHandler(router).listen(8080) { http ->
       if (http.succeeded()) {
         startFuture.complete()
         val startTimeDone = System.currentTimeMillis() - startTime
-        println("HTTP server started on port 8080 in $startTimeDone ms")
+        println("HTTP server started on port 8080 in $startTimeDone ms on event loop thread ${Thread.currentThread()}")
       } else {
         startFuture.fail(http.cause());
       }
