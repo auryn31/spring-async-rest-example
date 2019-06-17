@@ -44,7 +44,7 @@ class MainVerticle : AbstractVerticle() {
       if (http.succeeded()) {
         startFuture.complete()
         val startTimeDone = System.currentTimeMillis() - startTime
-        println("HTTP server started on port 8080 in $startTimeDone ms")
+        println("HTTP server started on port 8080 in $startTimeDone ms on event loop thread ${Thread.currentThread()}")
       } else {
         startFuture.fail(http.cause());
       }
