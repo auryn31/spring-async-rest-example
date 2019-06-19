@@ -21,7 +21,7 @@ open class CarResourceTest {
         val reader = BufferedReader(InputStreamReader(stream))
         val observable = fromBufferedReader(reader)
         val responseCars = observable.map { Klaxon().parse<Car>(it) }.blockingIterable().toList()
-        assert(responseCars.size == 11)
+        assert(responseCars.size == 10)
     }
 
     @Test
@@ -34,7 +34,7 @@ open class CarResourceTest {
         var response = ""
         reader.lines().forEach{ response += it}
         val responseCars = Klaxon().parseArray<Car>(response);
-        assert(responseCars?.size == 11)
+        assert(responseCars?.size == 10)
     }
 
 }

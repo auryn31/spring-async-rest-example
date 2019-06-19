@@ -2,18 +2,15 @@ package com.example.reactive.service
 
 import com.example.reactive.model.Car
 import io.reactivex.*
+import java.util.concurrent.TimeUnit
 import kotlin.random.Random
 
 class DataService {
     companion object {
         fun getDataStream(timeout: Long) : Observable<Car> {
-            return Observable.create {
-                for (i in 0..10) {
-                    Thread.sleep(timeout)
-                    it.onNext(createRandomCar())
-                }
-                it.onComplete()
-            }
+            return Observable.interval(timeout, TimeUnit.MILLISECONDS)
+                    .take(10)
+                    .map { createRandomCar() }
         }
 
         private fun createRandomCar(): Car {
